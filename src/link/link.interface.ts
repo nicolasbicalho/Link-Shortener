@@ -4,4 +4,5 @@ export interface Link {
 	shortUrl: string,
 	originalUrl: string,
 	userId: string,
+	earningsPerClick: number,
 }

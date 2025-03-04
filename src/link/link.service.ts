@@ -10,6 +10,7 @@ function generateShortId() {
 async function generateShortLink({ originalUrl, userId }: { originalUrl: string, userId: string }) {
 	const appUrl = process.env.APP_URL || 'http://localhost:3000';
 	const shortId = generateShortId();
+	const earningsPerClick = 0.05;
 
 	const shortUrl = `${appUrl}/${shortId}`;
 
@@ -18,12 +19,12 @@ async function generateShortLink({ originalUrl, userId }: { originalUrl: string,
 		shortUrl,
 		originalUrl,
 		userId,
+		earningsPerClick,
 	});
 }
 
-async function getOriginalUrl({ shortId }: { shortId: string }) {
-	const link = await linkDao.getByShortId(shortId);
-	return link?.originalUrl;
+async function getLinkByShortId({ shortId }: { shortId: string }) {
+	return linkDao.getByShortId(shortId);
 }
 
 async function getUserLinks({ userId }: { userId: string }) {
@@ -32,6 +33,6 @@ async function getUserLinks({ userId }: { userId: string }) {
 
 export default {
 	generateShortLink,
-	getOriginalUrl,
+	getLinkByShortId,
 	getUserLinks,
 };

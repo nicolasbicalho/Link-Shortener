@@ -9,6 +9,7 @@ import linkRoutes from './link/link.routes';
 
 import AppError from './utils/AppError';
 import linkService from './link/link.service';
+import viewService from './view/view.service';
 
 const app = express();
 
@@ -30,12 +31,14 @@ app.get('/:shortId', async (req: Request, res: Response, next: NextFunction) => 
 		const { shortId } = req.params;
 		if (!shortId) throw new AppError('shortId not found', 400);
 	
-		const originalUrl = await linkService.getOriginalUrl({
+		const shortLink = await linkService.getLinkByShortId({
 			shortId,
 		});
-		if (!originalUrl) throw new AppError('Not Found', 404);
+		if (!shortLink?.originalUrl) throw new AppError('Not Found', 404);
+
+		await viewService.registerView({ link: shortLink });
 		
-		res.redirect(originalUrl);
+		res.redirect(shortLink.originalUrl);
 	} catch (error) {
 		return next(error);
 	}
