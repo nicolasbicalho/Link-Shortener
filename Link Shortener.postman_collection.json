@@ -61,7 +61,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"userId\": \"ca67ed28-2ace-4d96-b832-758a593289d9\",\r\n    \"originalUrl\": \"https://www.google.com.br\"\r\n}",
+					"raw": "{\r\n    \"userId\": \"605a9bff-7154-4151-86bb-c6ceb6371072\",\r\n    \"originalUrl\": \"https://www.instagram.com.br/nicolasbicalho\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -93,7 +93,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"userId\": \"ca67ed28-2ace-4d96-b832-758a593289d9\"\r\n}",
+					"raw": "{\r\n    \"userId\": \"605a9bff-7154-4151-86bb-c6ceb6371072\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -110,6 +110,80 @@
 					"path": [
 						"user",
 						"links"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Link Stats",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cache-Control",
+						"value": "no-cache",
+						"name": "cache-control",
+						"type": "text"
+					},
+					{
+						"key": "Postman-Token",
+						"value": "<calculated when request is sent>",
+						"name": "postman-token",
+						"type": "text"
+					},
+					{
+						"key": "Host",
+						"value": "<calculated when request is sent>",
+						"name": "host",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "PostmanRuntime/7.39.1",
+						"name": "user-agent",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"name": "accept",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"name": "accept-encoding",
+						"type": "text"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive",
+						"name": "connection",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/link/stats?shortId=HlOEK6WdO2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"link",
+						"stats"
+					],
+					"query": [
+						{
+							"key": "shortId",
+							"value": "HlOEK6WdO2"
+						}
 					]
 				}
 			},
